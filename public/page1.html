@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <style>
+    body {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        background-color: rgb(4, 91, 59);
+    }
+
+    h1{
+        display: block;
+        justify-self: center;
+        color: chartreuse;
+    }
+
+
+    h3 {
+        font-size: 20pt;
+        color: rgb(105, 172, 143);
+        margin-left: 1em;
+    }
+
+    h2{
+        font-size: 30pt;
+        margin-left: 1.8em;
+        color: aquamarine;
+    }
+
+    a {
+        color: azure;
+        padding: 20px;
+        text-decoration: none;
+        
+    }
+
+    a:hover {
+        color: rgb(113, 135, 130);
+    }
+
+  </style>
+  <h1>Page 1</h1>
+
+  <div>
+    <h3>Visit Pages:</h3>
+    <h2 id="PageCount"></h2><br>
+  </div>
+
+  <a href="index.html">Home</a>
+  <a href="page2.html">Page 2</a>
+
+  <script>
+    fetch('/hits/page1')
+      .then(res => res.json())
+      .then(counter => {
+        document.getElementById('PageCount').innerText = counter.hits;
+      });
+  </script>
+</body>
+</html>
